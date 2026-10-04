@@ -1,0 +1,147 @@
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:openai._base_client:Retrying request in 0.449306 seconds (retry 1 of 2)
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:openai._base_client:Retrying request in 0.908017 seconds (retry 2 of 2)
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:openai._base_client:Retrying request in 0.375090 seconds (retry 1 of 2)
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:openai._base_client:Retrying request in 0.800127 seconds (retry 2 of 2)
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The review acknowledges significant flaws in the film but highlights the strong performances of the lead actors.  
+sentiment: positive
+INFO:__main__:Analyzing review "The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back."
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The review highlights multiple negative aspects of the film, including poor acting and a confusing plot.  
+sentiment: negative
+INFO:__main__:Analyzing review "An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish."
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The review praises the film for its cinematography, acting, and engaging story.  
+sentiment: positive
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:openai._base_client:Retrying request in 0.441640 seconds (retry 1 of 2)
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The review acknowledges the film's shortcomings but highlights the strong performances of Hanks and Ryan, suggesting that they elevate the movie despite its flaws.  
+sentiment: positive
+INFO:__main__:Review analyzed: The review acknowledges the film's shortcomings but highlights the strong performances of Hanks and Ryan, suggesting that they elevate the movie despite its flaws.   (positive)
+INFO:__main__:Analyzing review "The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back."
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The review expresses strong dissatisfaction with the film, highlighting poor acting and a confusing plot.  
+sentiment: negative
+INFO:__main__:Review analyzed: The review expresses strong dissatisfaction with the film, highlighting poor acting and a confusing plot.   (negative)
+INFO:__main__:Analyzing review "An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish."
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:openai._base_client:Retrying request in 0.409553 seconds (retry 1 of 2)
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+INFO:openai._base_client:Retrying request in 0.825781 seconds (retry 2 of 2)
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The review praises the film as a masterpiece, highlighting its stunning cinematography, superb acting, and engaging story.  
+sentiment: positive
+INFO:__main__:Review analyzed: The review praises the film as a masterpiece, highlighting its stunning cinematography, superb acting, and engaging story.   (positive)
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: This review acknowledges the film's weak plot and dated premise, but ultimately praises the lead actors' performances for making it work.
+sentiment: positive
+INFO:__main__:Review analyzed: This review acknowledges the film's weak plot and dated premise, but ultimately praises the lead actors' performances for making it work. (positive)
+INFO:__main__:Analyzing review "The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The reviewer acknowledges the film's weak plot and dated premise, but ultimately praises the lead actors' performances for making it work.
+sentiment: positive
+INFO:__main__:Review analyzed: The reviewer acknowledges the film's weak plot and dated premise, but ultimately praises the lead actors' performances for making it work. (positive)
+INFO:__main__:Analyzing review "The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The reviewer acknowledges narrative weaknesses and dated elements, but praises the lead actors' performances for making the film work.
+sentiment: positive
+INFO:__main__:Review analyzed: The reviewer acknowledges narrative weaknesses and dated elements, but praises the lead actors' performances for making the film work. (positive)
+INFO:__main__:Analyzing review "The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: thought: The review praises the film's cinematography, acting, and engaging story, calling it an absolute masterpiece.
+sentiment: positive
+INFO:__main__:Review analyzed: The review praises the film's cinematography, acting, and engaging story, calling it an absolute masterpiece. (positive)
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review This film shouldn't work at all. It doesn't have much of a story and the whole dial up internet thing is incredibly dated. However Hanks and Ryan sell it beautifully.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review The movie was terrible. The acting was wooden, the plot made no sense, and I want my two hours back.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
+INFO:__main__:Analyzing review "An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish."
+INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/interactions "HTTP/1.1 200 OK"
+INFO:__main__:Response received: 
+ERROR:__main__:Could not correctly parse response for review An absolute masterpiece! The cinematography was stunning, the acting was superb, and the story kept me engaged from start to finish.
+Traceback (most recent call last):
+  File "E:\Repositories\ai-for-programmers_rose\ai-for-programmers_rose\week_1_movie_review_sentiment_analysis\movie_review_sentiment_gemini.py", line 64, in analyze_sentiment
+    thought= content.strip()[9:content.index('\nsentiment:')]
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ValueError: substring not found
