@@ -1,23 +1,37 @@
-import os
-import glob
+#!/usr/bin/env python3
+'''
+'''
+
 import openai
 from pinecone import Pinecone
+from langsmith import Client, traceable, tracing_context
+from langsmith.wrappers import wrap_openai
+
+import os, glob
+import sys
+import logging
 from typing import List
-from langsmith import Client, traceable
+
+
 
 # Initialize OpenAI and Pinecone clients
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 pc = Pinecone(api_key=os.environ.get("PINECONE_API_KEY"))
 
+client = wrap_openai(openai.Client())
 # LangSmith client setup
 langsmith_api_key = os.environ.get("LANGCHAIN_API_KEY")
 langsmith_project = "rag-observability"
 langsmith_client = Client(api_key=langsmith_api_key)
 
 # Constants
-INDEX_NAME = "test"
+INDEX_NAME = "ai-for-programmers"
 EMBEDDING_MODEL = "text-embedding-3-small"
 CHAT_MODEL = "gpt-4o-mini-2024-07-18"
+
+logger = logging.Logger(__name__)
+logger.addHandler(logging.NullHandler())
+
 
 @traceable(name="load_documents")
 def load_documents():
@@ -28,7 +42,7 @@ def load_documents():
     files = glob.glob(path)
     
     for file_path in files:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r',encoding="utf-8") as file:
             content = file.read()
             documents.append({"content": content, "metadata": {"source": file_path}})
     
@@ -88,13 +102,14 @@ def embed_documents(chunks, namespace):
         for j, embedding in enumerate(embeddings):
             vectors.append({
                 "id": f"chunk_{i+j}",
-                "values": embedding,
+                "values": embedding[:1024],
                 "metadata": chunk_batch[j]["metadata"]
             })
         
         # Upsert to Pinecone
         index.upsert(vectors=vectors, namespace=namespace)
 
+@traceable(name="search_documents")
 def search_documents(query, namespace, top_k=5):
     """Search the vector store with the user query."""
     # Get query embedding
@@ -103,7 +118,7 @@ def search_documents(query, namespace, top_k=5):
     # Search Pinecone
     index = pc.Index(INDEX_NAME)
     results = index.query(
-        vector=query_embedding,
+        vector=query_embedding[:1024],
         top_k=top_k,
         namespace=namespace,
         include_metadata=True,
@@ -114,14 +129,17 @@ def search_documents(query, namespace, top_k=5):
     docs_with_scores = []
     for match in results["matches"]:
         # Load the document content based on the source file
-        with open(match["metadata"]["source"], 'r') as f:
+        with open(match["metadata"]["source"], 'r',encoding="utf-8") as f:
             content = f.read()
         docs_with_scores.append((content, match["score"]))
     
     return docs_with_scores
 
-# TODO: Add traceable decorator to track this function in LangSmith
+
 # Example: https://docs.smith.langchain.com/observability/how_to_guides/log_traces_to_project
+@traceable(name="ask_openai",
+        project_name=langsmith_project,
+        run_type="llm")
 def ask_openai(query, documents):
     """Ask OpenAI a question with context from the documents."""
     # Join all documents into a single context string
@@ -136,21 +154,64 @@ def ask_openai(query, documents):
         {"role": "user", "content": query}
     ]
     
-    response = openai.chat.completions.create(
+    response = client.chat.completions.create(
         model=CHAT_MODEL,
         messages=messages
     )
     
     return response.choices[0].message.content
 
-if __name__ == "__main__":
-    # Step 2: Write a query
-    user_query = "When did Berkshire Hathaway purchase it's first coke stock?" # Year: 1988
 
-    # Step 3: Check Pinecone for similar chunks
-    docs_and_scores = search_documents(query=user_query, namespace="chunks")
+def main():
+    logging.basicConfig(filename="shareholder_openai.log", level=logging.INFO)
     
-    # Step 4: Put docs into prompt and send to OpenAI
-    response = ask_openai(user_query, docs_and_scores)
+    with tracing_context(enabled=True, client=langsmith_client, project_name=langsmith_project):
+        # # [Step 1: Initiate Pinecone DB with embeddings...] 
+        # docs = load_documents()
+        # chunks = chunk_documents(docs)
+        # embed_documents(chunks, namespace="chunks")
+        
+        # Step 2: Write a query
+        user_query = "When did Berkshire Hathaway purchase it's first coke stock?" # Year: 1988
+
+        # Step 3: Check Pinecone for similar chunks
+        docs_and_scores = search_documents(query=user_query, namespace="chunks")
+        
+        # Step 4: Put docs into prompt and send to OpenAI
+        response = ask_openai(user_query, docs_and_scores)
         
     print(response) 
+
+
+
+@traceable(run_type="tool", name="Retrieve Context")
+def my_tool(question: str) -> str:
+    return "During this morning's meeting, we solved all world conflict."
+
+
+@traceable(name="Chat Pipeline")
+def chat_pipeline(question: str):
+    context = my_tool(question)
+    messages = [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant. Please respond to the user's request only based on the given context.",
+        },
+        {
+            "role": "user",
+            "content": f"Question: {question}\nContext: {context}",
+        },
+    ]
+    chat_completion = client.chat.completions.create(
+        model="gpt-4o-mini", messages=messages
+    )
+    return chat_completion.choices[0].message.content
+
+
+def main_2():
+    logging.basicConfig(filename="tracing_test.log", level=logging.INFO)
+    with tracing_context(enabled=True, client=langsmith_client, project_name=langsmith_project):
+        chat_pipeline("Can you summarize this morning's meetings?")
+
+if __name__ == "__main__":
+    sys.exit(main_2())

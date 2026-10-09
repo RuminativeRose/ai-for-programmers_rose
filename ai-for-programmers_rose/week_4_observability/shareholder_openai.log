@@ -1,0 +1,52 @@
+INFO:pinecone.client.indexes:Describing index 'ai-for-programmers'
+INFO:httpx:HTTP Request: GET https://api.pinecone.io/indexes/ai-for-programmers "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 100 vectors into namespace 'chunks'
+INFO:pinecone.client.indexes:Describing index 'ai-for-programmers'
+INFO:httpx:HTTP Request: GET https://api.pinecone.io/indexes/ai-for-programmers "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 100 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 100 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 100 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 10 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:pinecone.index:Querying index with top_k=5
+INFO:pinecone.client.indexes:Describing index 'ai-for-programmers'
+INFO:httpx:HTTP Request: GET https://api.pinecone.io/indexes/ai-for-programmers "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 100 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 100 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 100 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Upserting 10 vectors into namespace 'chunks'
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:pinecone.index:Querying index with top_k=5
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.client.indexes:Describing index 'ai-for-programmers'
+INFO:httpx:HTTP Request: GET https://api.pinecone.io/indexes/ai-for-programmers "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:pinecone.index:Querying index with top_k=5
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.client.indexes:Describing index 'ai-for-programmers'
+INFO:httpx:HTTP Request: GET https://api.pinecone.io/indexes/ai-for-programmers "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:pinecone.index:Querying index with top_k=5
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:pinecone.client.indexes:Describing index 'ai-for-programmers'
+INFO:httpx:HTTP Request: GET https://api.pinecone.io/indexes/ai-for-programmers "HTTP/1.1 200 OK"
+INFO:pinecone.index:Index client created for host https://ai-for-programmers-rjjbjhn.svc.aped-4627-b74a.pinecone.io
+INFO:pinecone.index:Querying index with top_k=5
+INFO:httpx2:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

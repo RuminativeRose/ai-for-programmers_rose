@@ -81,7 +81,7 @@ def embed_documents(chunks, namespace):
         for j, embedding in enumerate(embeddings):
             vectors.append({
                 "id": f"chunk_{i+j}",
-                "values": embedding,
+                "values": embedding[:1024],
                 "metadata": chunk_batch[j]["metadata"]
             })
         
@@ -92,7 +92,7 @@ def embed_documents(chunks, namespace):
 def search_documents(query, namespace, top_k=5):
     """Search the vector store with the user query."""
     # Get query embedding
-    query_embedding = get_embeddings([query])[0]
+    query_embedding = get_embeddings([query])[0][:1024]
     
     # TODO: Search Pinecone using the query_embedding
     # Implement the search functionality using the Pinecone Index query method
