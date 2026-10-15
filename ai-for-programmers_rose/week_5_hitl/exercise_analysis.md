@@ -7,3 +7,4 @@
 - Review the existing trip planning flow
 
 - Decide which steps would benefit from human verification
+I think allowing the user to choose a potential flight may be a little too cumbersome to implement considering the software's limited scope and goals. Choosing the destination, in contrast, makes the program actually potentially helpful for the user. Changing the itinerary is also something the user  can facilely benefit from.
