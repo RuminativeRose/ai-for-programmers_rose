@@ -15,7 +15,7 @@ from typing import Dict, List, Optional
 import openai
 
 # Configure your OpenAI API key (in a real app, use environment variables)
-# openai.api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 class CustomerServiceChainless:
     """
@@ -56,13 +56,13 @@ class CustomerServiceChainless:
                 - strategy
                 - response
                 
-                Be professional, empathetic, and thorough."""},
+                Please be professional, empathetic, and thorough."""},
                 {"role": "user", "content": customer_question}
             ]
         )
         
         # Parse the response
-        result = response.choices[0].message.content.strip()
+        result = response.choices[0].message.content.strip() #TODO Is this a string, or a dict?
         
         return result
 

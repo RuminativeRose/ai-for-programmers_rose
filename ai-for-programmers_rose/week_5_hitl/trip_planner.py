@@ -9,12 +9,14 @@ This script demonstrates a simple HITL system for planning a trip with three ste
 Each step includes human verification and modification options.
 """
 
+from openai import OpenAI
+from pydantic import BaseModel, Field
+
 import json
 from typing import Dict, Optional, List
 from dataclasses import dataclass
-from openai import OpenAI
+
 import os
-from pydantic import BaseModel, Field
 
 @dataclass
 class TripPlan:
@@ -106,7 +108,14 @@ class TripPlanner:
                 "day2": ["Morning activity", "Afternoon activity"],
                 "day3": ["Morning activity", "Afternoon activity"]
             }
-
+    def get_user_itinerary(self):
+        itinerary={}
+        for i in range(3):
+            activities = [a for a in input(f"\nEnter a list of activities separated by spaces for day {i+1}").strip().split(' ') if a]
+                itinerary["day"+str(i+1)] = activities
+        return itinerary
+                
+    
     def get_human_confirmation(self, prompt: str) -> bool:
         """Get human confirmation for a suggestion."""
         while True:
@@ -142,6 +151,13 @@ class TripPlanner:
         print(f"Departure: {suggested_flight.departure_time}")
         print(f"Arrival: {suggested_flight.arrival_time}")
         
+        # self.get_human_confirmation("Would you like to use this flight?"):
+            # flight = suggested_flight
+        # else:
+            # flight = input('\nEnter a flight number or "TBA"')
+            # # flight is a dict..., don't feel like coding another function to create
+        
+        
         # Step 3: Itinerary Generation
         suggested_itinerary = self.generate_itinerary(destination)
         
@@ -151,12 +167,18 @@ class TripPlanner:
             for activity in activities:
                 print(f"- {activity}")
 
+        # nice
+        self.get_human_confirmation("Would you like to use this itinerary?"):
+            itinerary = suggested_itinerary
+        else:
+            itinerary = get_user_itinerary()
+            
         # Save the complete trip plan
         self.trip_plan = TripPlan(
             destination=destination,
             departure_city=departure_city,
             flight_info=suggested_flight,
-            itinerary=suggested_itinerary
+            itinerary=itinerary
         )
 
         # Display final plan

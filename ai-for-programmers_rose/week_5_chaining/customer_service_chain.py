@@ -18,7 +18,7 @@ from typing import Dict, List, Optional
 import openai
 
 # Configure your OpenAI API key (in a real app, use environment variables)
-# openai.api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 class CustomerServiceChain:
     """
@@ -70,7 +70,7 @@ class CustomerServiceChain:
                 {"role": "user", "content": customer_question}
             ]
         )
-        return response.choices[0].message.content.strip()
+        return response.choices[0].message.content.strip() # supposed to be returning a Dict? ###
     
     def generate_response_strategy(self, analysis: Dict[str, str]) -> str:
         """
